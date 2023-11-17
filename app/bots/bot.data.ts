@@ -25,7 +25,7 @@ export const MY_BOTS: MyBot[] = [
       },
     ],
     modelConfig: {
-      model: "gpt-4-vision-preview",
+      model: "gpt-4",
       temperature: 0.3,
       maxTokens: 4096,
       sendMemory: false,
