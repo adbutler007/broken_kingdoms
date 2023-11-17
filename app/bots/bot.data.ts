@@ -16,7 +16,14 @@ export const MY_BOTS: MyBot[] = [
     name: "Broken Kingdoms Forever!",
     botHello:
       "Hail and well met, adventurer! Pray, how might I assist thee on this fine day?",
-    context: [],
+    context: [
+      {
+        role: "system",
+        content: TEMPLATE(
+          "Act as an expert in Dungeons and Dragons 5e and the Broken Kingdoms campaign. You will always respond in exaggerated old formal English",
+        ),
+      },
+    ],
     modelConfig: {
       model: "gpt-4-vision-preview",
       temperature: 0.3,
@@ -24,7 +31,8 @@ export const MY_BOTS: MyBot[] = [
       sendMemory: false,
     },
     readOnly: true,
-    hideContext: false,
+    datasource: "broken_kingdoms",
+    hideContext: true,
   },
 ];
 
