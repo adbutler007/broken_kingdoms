@@ -5,58 +5,26 @@ import { ModelType } from "@/app/client/platforms/llm";
 import { createEmptySession } from "../store";
 
 const TEMPLATE = (PERSONA: string) =>
-  `I want you to act as a ${PERSONA}. I will provide you with the context needed to solve my problem. Use intelligent, simple, and understandable language. Be concise. It is helpful to explain your thoughts step by step and with bullet points.`;
+  `I want you to act as a ${PERSONA}. I will provide you with the context needed to answer questions. Use intelligent, simple, and understandable language. Be concise and ensure your answer narrowly and specifically answers the specific question asked. It is helpful to explain your thoughts step by step and with bullet points. Ensure your answers NEVER use promissory language or refer to specific investment products.`;
 
 type MyBot = Omit<Bot, "session">;
 
 export const MY_BOTS: MyBot[] = [
   {
-    id: "3",
-    avatar: "1f5a5-fe0f",
-    name: "Trend Replication Q&A Bot",
+    id: "1",
+    avatar: "1f916",
+    name: "Broken Kingdoms Forever!",
     botHello:
-      "Hello! How can I help you learn more about trend replication research and methodology today?",
-    context: [
-      {
-        role: "system",
-        content: TEMPLATE(
-          "Act as a Trend Replication expert. I will provide you with the context needed to solve my problem. Use intelligent, simple, and understandable language. Be concise and ensure your answer narrowly and specifically answers the specific question asked. It is helpful to explain your thoughts step by step and with bullet points. Ensure your answers NEVER use promissory language or refer to specific investment products.",
-        ),
-      },
-    ],
+      "Hail and well met, adventurer! Pray, how might I assist thee on this fine day?",
+    context: [],
     modelConfig: {
-      model: "gpt-4",
-      temperature: 0.1,
+      model: "gpt-4-vision-preview",
+      temperature: 0.3,
       maxTokens: 4096,
-      sendMemory: true,
+      sendMemory: false,
     },
     readOnly: true,
-    datasource: "trend_replication",
-    hideContext: true,
-  },
-  {
-    id: "4",
-    avatar: "1f5a5-fe0f",
-    name: "Return Stacking Q&A Bot",
-    botHello:
-      "Hello! How can I help you learn more about Return Stacking today?",
-    context: [
-      {
-        role: "system",
-        content: TEMPLATE(
-          "Act as a Return Stacking expert. I will provide you with the context needed to solve my problem. Use intelligent, simple, and understandable language. Be concise and ensure your answer narrowly and specifically answers the specific question asked. It is helpful to explain your thoughts step by step and with bullet points. Ensure your answers NEVER use promissory language or refer to specific investment products.",
-        ),
-      },
-    ],
-    modelConfig: {
-      model: "gpt-4",
-      temperature: 0.1,
-      maxTokens: 4096,
-      sendMemory: true,
-    },
-    readOnly: true,
-    datasource: "return_stacking",
-    hideContext: true,
+    hideContext: false,
   },
 ];
 
